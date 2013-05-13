@@ -34,11 +34,6 @@ echo "downloading map from server" >> $SCRIPT_LOG
 date >> $SCRIPT_LOG
 echo "rendering the map" >> $SCRIPT_LOG
 (time $UPDATE_SCRIPT) &>> $UPDATE_LOG
-
 date >> $SCRIPT_LOG
-echo "uploading render to server" >> $SCRIPT_LOG
-(time $UPLOAD_SCRIPT) &>> $UPLOAD_LOG
-date >> $SCRIPT_LOG
-echo "Done uploading to server. Removing lock file." >> $SCRIPT_LOG
 
 rm -rf $LOCK_FILE
