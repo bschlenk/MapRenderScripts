@@ -2,3 +2,4 @@ MAILTO=""
 0 */3 * * * /home/bschlenk/minecraft/do_map.sh
 0 5 * * */2 /home/bschlenk/minecraft/update_client.sh
 0 5 * * 0 rm -rf /home/bschlenk/minecraft/log
+*/10 * * * * /home/bschlenk/minecraft/update_players.sh

@@ -3,7 +3,7 @@ outputdir = "/home/bschlenk/minecraft_map"
 
 notree_render = [Base(), EdgeLines(), Hide(blocks=[18, 106, 78])]
 dry_render = [Base(), EdgeLines(), NoFluids(), Hide(blocks=[79, 78])]
-open_nether_render = [Base(), EdgeLines(), Hide(blocks=[87, 7])]
+open_nether_render = [Base(), EdgeLines(), NoFluids(), Hide(blocks=[87, 7, 88])]
 
 def playerFilter(poi):
 	if poi['id'] == 'Player':
