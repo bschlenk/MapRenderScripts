@@ -1,4 +1,5 @@
-worlds["Swellserve"] = "/home/bschlenk/minecraft/world"
+worlds["bschlenk"] = "/home/brian/mapper/world"
+outputdir = "/home/brian/mc.bschlenk.com"
 
 notree_render = [Base(), EdgeLines(), Lighting(), Hide(blocks=[18, 106, 78])]
 dry_render = [Base(), EdgeLines(), NoFluids(), Hide(blocks=[79])]
@@ -8,56 +9,55 @@ def playerFilter(poi):
 	if poi['id'] == 'Player':
 		return poi['EntityId']
 
-renders["swellserve_day"] = {
-	"world" : "Swellserve",
+renders["bschlenk_day"] = {
+	"world" : "bschlenk",
 	"title" : "Day",
 	"rendermode" : "lighting",
 	"dimension" : "overworld",
 	"markers" : [dict(name="Players", filterFunction=playerFilter, checked=True)],
 }
 
-renders["swellserve_night"] = {
-	"world" : "Swellserve",
+renders["bschlenk_night"] = {
+	"world" : "bschlenk",
 	"title" : "Night",
 	"rendermode" : "night",
 	"dimension" : "overworld",
 }
 
-renders["swellserve_south"] = {
-	"world" : "Swellserve",
+renders["bschlenk_south"] = {
+	"world" : "bschlenk",
 	"title" : "South",
 	"rendermode" : "normal",
 	"dimension" : "overworld",
 	"northdirection" : "lower-right",
 }
 
-renders["swellserve_notrees"] = {
-	"world" : "Swellserve",
+renders["bschlenk_notrees"] = {
+	"world" : "bschlenk",
 	"title" : "No Canopy",
 	"rendermode" : notree_render,
 	"dimension" : "overworld",
 }
 
-renders["swellserve_dry"] = {
-	"world" : "Swellserve",
+renders["bschlenk_dry"] = {
+	"world" : "bschlenk",
 	"title" : "Dry",
 	"rendermode" : dry_render,
 	"dimension" : "overworld",
 }
 
-renders["swellserve_nether"] = {
-	"world" : "Swellserve",
+renders["bschlenk_nether"] = {
+	"world" : "bschlenk",
 	"title" : "Nether",
 	"rendermode" : "nether_lighting",
 	"dimension" : "nether",
 	"markers" : [dict(name="Players", filterFunction=playerFilter, checked=True)],
 }
 
-renders["swellserve_nether_norack"] = {
-	"world" : "Swellserve",
+renders["bschlenk_nether_norack"] = {
+	"world" : "bschlenk",
 	"title" : "No Netherrack",
 	"rendermode" : open_nether_render,
 	"dimension" : "nether",
 }
 
-outputdir = "/home/bschlenk/minecraft/mcmap"
