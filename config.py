@@ -1,20 +1,25 @@
-worlds["bschlenk"] = "/home/brian/mapper/world"
+worlds["bschlenk"] = map_directory
 outputdir = "/home/brian/mc.bschlenk.com"
 
-notree_render = [Base(), EdgeLines(), Lighting(), Hide(blocks=[18, 106, 78])]
-dry_render = [Base(), EdgeLines(), NoFluids(), Hide(blocks=[79])]
-open_nether_render = [Base(), EdgeLines(), Hide(blocks=[87])]
+notree_render = [Base(), EdgeLines(), Hide(blocks=[18, 106, 78])]
+dry_render = [Base(), EdgeLines(), NoFluids(), Hide(blocks=[79, 78])]
+open_nether_render = [Base(), EdgeLines(), Hide(blocks=[87, 7])]
 
 def playerFilter(poi):
 	if poi['id'] == 'Player':
 		return poi['EntityId']
 
+<<<<<<< HEAD
+=======
+playerMarker = dict(name="Players", filterFunction=playerFilter, checked=True)
+
+>>>>>>> origin/master
 renders["bschlenk_day"] = {
 	"world" : "bschlenk",
 	"title" : "Day",
 	"rendermode" : "lighting",
 	"dimension" : "overworld",
-	"markers" : [dict(name="Players", filterFunction=playerFilter, checked=True)],
+	"markers" : [playerMarker],
 }
 
 renders["bschlenk_night"] = {
@@ -22,6 +27,7 @@ renders["bschlenk_night"] = {
 	"title" : "Night",
 	"rendermode" : "night",
 	"dimension" : "overworld",
+	"markers" : [playerMarker],
 }
 
 renders["bschlenk_south"] = {
@@ -30,6 +36,7 @@ renders["bschlenk_south"] = {
 	"rendermode" : "normal",
 	"dimension" : "overworld",
 	"northdirection" : "lower-right",
+	"markers" : [playerMarker],
 }
 
 renders["bschlenk_notrees"] = {
@@ -37,6 +44,7 @@ renders["bschlenk_notrees"] = {
 	"title" : "No Canopy",
 	"rendermode" : notree_render,
 	"dimension" : "overworld",
+	"markers" : [playerMarker],
 }
 
 renders["bschlenk_dry"] = {
@@ -44,6 +52,7 @@ renders["bschlenk_dry"] = {
 	"title" : "Dry",
 	"rendermode" : dry_render,
 	"dimension" : "overworld",
+	"markers" : [playerMarker],
 }
 
 renders["bschlenk_nether"] = {
@@ -51,7 +60,7 @@ renders["bschlenk_nether"] = {
 	"title" : "Nether",
 	"rendermode" : "nether_lighting",
 	"dimension" : "nether",
-	"markers" : [dict(name="Players", filterFunction=playerFilter, checked=True)],
+	"markers" : [playerMarker],
 }
 
 renders["bschlenk_nether_norack"] = {
@@ -59,5 +68,6 @@ renders["bschlenk_nether_norack"] = {
 	"title" : "No Netherrack",
 	"rendermode" : open_nether_render,
 	"dimension" : "nether",
+	"markers" : [playerMarker],
 }
 
