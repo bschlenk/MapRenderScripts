@@ -9,11 +9,8 @@ def playerFilter(poi):
 	if poi['id'] == 'Player':
 		return poi['EntityId']
 
-<<<<<<< HEAD
-=======
 playerMarker = dict(name="Players", filterFunction=playerFilter, checked=True)
 
->>>>>>> origin/master
 renders["bschlenk_day"] = {
 	"world" : "bschlenk",
 	"title" : "Day",
