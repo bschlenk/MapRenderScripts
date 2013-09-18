@@ -1,13 +1,21 @@
+import sys
+sys.path.append('/home/bschlenk/minecraft')
+
 worlds["bschlenk"] = "/home/bschlenk/minecraft/world"
 outputdir = "/home/bschlenk/minecraft_map"
+htmltitle="Schlenker's World"
 
 notree_render = [Base(), EdgeLines(), Hide(blocks=[18, 106, 78])]
 dry_render = [Base(), EdgeLines(), NoFluids(), Hide(blocks=[79, 78])]
 open_nether_render = [Base(), EdgeLines(), NoFluids(), Hide(blocks=[87, 7, 88])]
 
 def playerFilter(poi):
+	from death_compiler import get_player_deaths
 	if poi['id'] == 'Player':
-		return poi['EntityId']
+		name = poi['EntityId']
+		num_deaths = get_player_deaths(name)
+		poi['icon'] = "http://overviewer.org/avatar/%s" % poi['EntityId']
+		return "%s\nDeaths: %d\nLocation: %d, %d, %d" % (name, num_deaths, poi['x'], poi['y'], poi['z'])
 
 playerMarker = dict(name="Players", filterFunction=playerFilter, checked=True)
 
