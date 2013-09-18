@@ -1,5 +1,7 @@
+map_directory = "world"
 worlds["bschlenk"] = map_directory
-outputdir = "/home/brian/mc.bschlenk.com"
+outputdir = "/var/www/mcmap.bschlenk.com"
+texturepath = "textures"
 
 notree_render = [Base(), EdgeLines(), Hide(blocks=[18, 106, 78])]
 dry_render = [Base(), EdgeLines(), NoFluids(), Hide(blocks=[79, 78])]
@@ -19,13 +21,13 @@ renders["bschlenk_day"] = {
 	"markers" : [playerMarker],
 }
 
-renders["bschlenk_night"] = {
+'''renders["bschlenk_night"] = {
 	"world" : "bschlenk",
 	"title" : "Night",
 	"rendermode" : "night",
 	"dimension" : "overworld",
 	"markers" : [playerMarker],
-}
+}'''
 
 renders["bschlenk_south"] = {
 	"world" : "bschlenk",
@@ -44,21 +46,21 @@ renders["bschlenk_notrees"] = {
 	"markers" : [playerMarker],
 }
 
-renders["bschlenk_dry"] = {
+'''renders["bschlenk_dry"] = {
 	"world" : "bschlenk",
 	"title" : "Dry",
 	"rendermode" : dry_render,
 	"dimension" : "overworld",
 	"markers" : [playerMarker],
-}
+}'''
 
-renders["bschlenk_nether"] = {
+'''renders["bschlenk_nether"] = {
 	"world" : "bschlenk",
 	"title" : "Nether",
 	"rendermode" : "nether_lighting",
 	"dimension" : "nether",
 	"markers" : [playerMarker],
-}
+}'''
 
 renders["bschlenk_nether_norack"] = {
 	"world" : "bschlenk",

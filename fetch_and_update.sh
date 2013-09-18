@@ -1,13 +1,13 @@
 #!/bin/bash
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source $SCRIPT_DIR/config
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+source config
 WORLD=$ROOT_DIR/world
-LOG_DIR=$SCRIPT_DIR/log
-SCRIPT_LOG=$LOG_DIR/script.log
+LOG_DIR=log
+SCRIPT_LOG=script.log
 RENDER_LOG=$LOG_DIR/render.log
-LOCKFILE=$SCRIPT_DIR/lockfile
-UPDATE_SCRIPT=$SCRIPT_DIR/downloadmap.sh
+LOCKFILE=lockfile
+UPDATE_SCRIPT=downloadmap.sh
 LOCKFD=99
 
 # PRIVATE
@@ -31,7 +31,7 @@ log() {
 	else
 		msg=$1
 	fi
-	echo `date +'%F %T'` $msg #>> $LOG_FILE
+	echo `date +'%F %T'` $msg >> $SCRIPT_LOG
 }
 
 mkdir -p $LOG_DIR
@@ -44,10 +44,9 @@ then
 fi
 
 
-elapsed=$(time $UPDATE_SCRIPT)
-log "elapsed download time: $elapsed"
-elapsed=$((time overviewer.py -v -v -v --config=$SCRIPT_DIR/config.py) )#&>> $RENDER_LOG)
+log `time $UPDATE_SCRIPT`
+(time overviewer.py -v -v -v --config=config.py -p 1) #&>> $RENDER_LOG)
 log "elapsed render time: $elapsed"
-elapsed=$((time overviewer.py --config=$SCRIPT_DIR/config.py --genpoi --skip-scan) &>> $RENDER_LOG)
+elapsed=$((time overviewer.py --config=config.py --genpoi --skip-scan) &>> $RENDER_LOG)
 log "elapsed genpoi time: $elapsed"
 
