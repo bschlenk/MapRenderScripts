@@ -1,0 +1,8 @@
+# information on where to download the map from
+REMOTE_USER="brian"
+REMOTE_HOST="swellserve.com"
+REMOTE_PORT=22
+REMOTE_WORLD_DIR="/home/brian/Minecraft/minecraft/world"
+
+LOCAL_WORLD_PARENT="/home/bschlenk/minecraft
+
