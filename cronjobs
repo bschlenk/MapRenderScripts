@@ -1,5 +1,5 @@
-MAILTO=""
-0 */3 * * * /home/bschlenk/minecraft/do_map.sh
-0 5 * * */2 /home/bschlenk/minecraft/update_client.sh
-0 5 * * 0 rm -rf /home/bschlenk/minecraft/log
-*/10 * * * * /home/bschlenk/minecraft/update_players.sh
+MAILTO="{EMAIL_ADDRESS}"
+0 */3 * * * . {CONFIG_FILE} && {LIB_DIR}/fetch_and_update.sh
+0 5 * * */2 . {CONFIG_FILE} && {LIB_DIR}/update_client.sh
+0 5 * * 0 rm -rf {LOG_DIR}/*
+*/10 * * * * . {CONFIG_FILE} && {LIB_DIR}/update_players.sh

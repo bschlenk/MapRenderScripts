@@ -2,3 +2,4 @@ log
 mcmap
 world
 .lock_file
+.vagrant

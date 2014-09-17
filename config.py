@@ -1,10 +1,10 @@
-import sys
+import os, sys
 sys.path.append('/home/bschlenk/minecraft')
 
-worlds["bschlenk"] = "/home/bschlenk/minecraft/world"
-outputdir = "/home/bschlenk/minecraft_map"
+worlds["bschlenk"] = os.environ['WORLD_DIR']
+outputdir = os.environ['MAP_DIR']
 htmltitle="Schlenker's World"
-texturepath = "textures"
+texturepath = os.environ['TEXTURE_PATH']
 
 notree_render = [Base(), EdgeLines(), Hide(blocks=[18, 106, 78])]
 dry_render = [Base(), EdgeLines(), NoFluids(), Hide(blocks=[79, 78])]
@@ -36,22 +36,22 @@ renders["bschlenk_day"] = {
 	"markers" : [playerMarker],
 }'''
 
-renders["bschlenk_south"] = {
+'''renders["bschlenk_south"] = {
 	"world" : "bschlenk",
 	"title" : "South",
 	"rendermode" : "normal",
 	"dimension" : "overworld",
 	"northdirection" : "lower-right",
 	"markers" : [playerMarker],
-}
+}'''
 
-renders["bschlenk_notrees"] = {
+'''renders["bschlenk_notrees"] = {
 	"world" : "bschlenk",
 	"title" : "No Canopy",
 	"rendermode" : notree_render,
 	"dimension" : "overworld",
 	"markers" : [playerMarker],
-}
+}'''
 
 '''renders["bschlenk_dry"] = {
 	"world" : "bschlenk",
@@ -69,11 +69,11 @@ renders["bschlenk_notrees"] = {
 	"markers" : [playerMarker],
 }'''
 
-renders["bschlenk_nether_norack"] = {
+'''renders["bschlenk_nether_norack"] = {
 	"world" : "bschlenk",
 	"title" : "No Netherrack",
 	"rendermode" : open_nether_render,
 	"dimension" : "nether",
 	"markers" : [playerMarker],
-}
+}'''
 

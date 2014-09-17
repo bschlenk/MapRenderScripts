@@ -1,8 +1,19 @@
-# information on where to download the map from
-REMOTE_USER="brian"
-REMOTE_HOST="swellserve.com"
-REMOTE_PORT=22
-REMOTE_WORLD_DIR="/home/brian/Minecraft/minecraft/world"
+#!/bin/bash
 
-LOCAL_WORLD_PARENT="/home/bschlenk/minecraft
+export REMOTE_USER="brian"
+export REMOTE_HOST="swellserve.com"
+export REMOTE_PORT="22"
+export REMOTE_WORLD_DIR="/home/brian/Minecraft/minecraft/world"
 
+export RUN_DIR="$(pwd)/reelmc/render"
+
+export TEXTURE_PATH="$RUN_DIR/textures"
+
+export WORLD_DIR="$RUN_DIR/world"
+export MAP_DIR="$RUN_DIR/map"
+export LOG_DIR="$RUN_DIR/logs"
+
+mkdir -p "$RUN_DIR"
+mkdir -p "$WORLD_DIR"
+mkdir -p "$MAP_DIR"
+mkdir -p "$LOG_DIR"

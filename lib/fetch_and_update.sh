@@ -1,13 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-cd "$( dirname "${BASH_SOURCE[0]}" )"
-source config
-WORLD=$ROOT_DIR/world
-LOG_DIR=log
-SCRIPT_LOG=script.log
+SCRIPT_LOG=$LOG_DIR/script.log
 RENDER_LOG=$LOG_DIR/render.log
-LOCKFILE=lockfile
-UPDATE_SCRIPT=downloadmap.sh
+LOCKFILE=$RUN_DIR/.renderlock
+UPDATE_SCRIPT=$LIB_DIR/download_map.sh
 LOCKFD=99
 
 # PRIVATE
@@ -33,8 +29,6 @@ log() {
 	fi
 	echo `date +'%F %T'` $msg >> $SCRIPT_LOG
 }
-
-mkdir -p $LOG_DIR
 
 exlock_now
 if [ $? -ne 0 ]
